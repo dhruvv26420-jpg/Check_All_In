@@ -1,0 +1,11 @@
+{
+  "contributor_id": "dev_0x42f7",
+  "repository": "decentralized-mesh/core",
+  "pull_request": {
+    "number": 104,
+    "title": "feat: implement localized trust propagation across peer vertices",
+    "description": "Introduces eigen-trust inspired graph propagation algorithm to update confidence weights locally without global consensus bottlenecks.",
+    "lines_added": 142,
+    "lines_deleted": 18
+  }
+}

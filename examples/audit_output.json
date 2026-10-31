@@ -1,0 +1,145 @@
+{
+  "@context": "https://openvex.dev/ns/v0.2.0",
+  "generator": "TrustMesh CLI v0.1.0",
+  "inspecting_repository": "Your-Project",
+  "generated_at": "2026-10-31T18:59:59Z",
+  "total_audited": 7,
+  "summary": {
+    "ALLOW_VOUCHED": 2,
+    "QUARANTINE_DENOUNCED": 1,
+    "QUARANTINE_CAMPAIGN": 1,
+    "HONEST_NEWCOMER_TRIAGE": 3
+  },
+  "decisions": [
+    {
+      "pr_id": "pr_001_vouched",
+      "contributor_id": "alice_vouched",
+      "target_repo": "Your-Project",
+      "graph_trust_score": 0.9025,
+      "is_vouched": true,
+      "is_campaign_member": false,
+      "campaign_id": null,
+      "bayesian_expected_trust": 0.8915,
+      "bayesian_uncertainty": 0.0095,
+      "verdict": "ALLOW_VOUCHED",
+      "action_recommendation": "Fast-track merge: Provenance verified via Web-of-Trust",
+      "evidence_trace": [
+        "Verified contributor via transitive Web-of-Trust (effective trust: 0.9025).",
+        "Passed local semantic spam filter: 0 cluster matches.",
+        "Bayesian confidence high (E[T]: 0.8915, Var: 0.0095)."
+      ]
+    },
+    {
+      "pr_id": "pr_002_vouched",
+      "contributor_id": "marcus_core",
+      "target_repo": "Your-Project",
+      "graph_trust_score": 0.855,
+      "is_vouched": true,
+      "is_campaign_member": false,
+      "campaign_id": null,
+      "bayesian_expected_trust": 0.8869,
+      "bayesian_uncertainty": 0.0102,
+      "verdict": "ALLOW_VOUCHED",
+      "action_recommendation": "Fast-track merge: Provenance verified via Web-of-Trust",
+      "evidence_trace": [
+        "Verified contributor via transitive Web-of-Trust (effective trust: 0.8550).",
+        "Passed local semantic spam filter: 0 cluster matches.",
+        "Bayesian confidence high (E[T]: 0.8869, Var: 0.0102)."
+      ]
+    },
+    {
+      "pr_id": "pr_003_denounced",
+      "contributor_id": "dan_denounced",
+      "target_repo": "Your-Project",
+      "graph_trust_score": 0.0,
+      "is_vouched": false,
+      "is_campaign_member": false,
+      "campaign_id": null,
+      "bayesian_expected_trust": 0.133,
+      "bayesian_uncertainty": 0.0135,
+      "verdict": "QUARANTINE_DENOUNCED",
+      "action_recommendation": "Block PR: Contributor denounced by trusted peer",
+      "evidence_trace": [
+        "Contributor denounced by 1 verified peer project(s).",
+        "Denouncement from 'Project-C': Supply chain malware injection attempt via post-install curl pipe (Severity: 0.92)"
+      ]
+    },
+    {
+      "pr_id": "pr_004_newcomer",
+      "contributor_id": "charlie_newbie",
+      "target_repo": "Your-Project",
+      "graph_trust_score": 0.0,
+      "is_vouched": false,
+      "is_campaign_member": false,
+      "campaign_id": null,
+      "bayesian_expected_trust": 0.5,
+      "bayesian_uncertainty": 0.0833,
+      "verdict": "HONEST_NEWCOMER_TRIAGE",
+      "action_recommendation": "Route to standard human review queue. Do not block. Contributor exhibits no malicious cluster affinity.",
+      "evidence_trace": [
+        "Zero prior reputation records in Web-of-Trust (cold-start newcomer).",
+        "Passed semantic spam filter: no coordinated burst affinity.",
+        "Asymmetric Negative Isolation protected newcomer: ignored hostile claim from untrusted 'Project-X'.",
+        "Bayesian Triage: E[T]=0.50, High Epistemic Uncertainty (Var=0.0833).",
+        "Applying non-exclusionary Hack Day Sonipat Problem 07 fairness policy."
+      ]
+    },
+    {
+      "pr_id": "pr_005_newcomer",
+      "contributor_id": "elena_docs",
+      "target_repo": "Your-Project",
+      "graph_trust_score": 0.0,
+      "is_vouched": false,
+      "is_campaign_member": false,
+      "campaign_id": null,
+      "bayesian_expected_trust": 0.5,
+      "bayesian_uncertainty": 0.0833,
+      "verdict": "HONEST_NEWCOMER_TRIAGE",
+      "action_recommendation": "Route to standard human review queue. Do not block. Contributor exhibits no malicious cluster affinity.",
+      "evidence_trace": [
+        "Zero prior reputation records in Web-of-Trust (cold-start newcomer).",
+        "Passed semantic spam filter: no coordinated burst affinity.",
+        "Bayesian Triage: E[T]=0.50, High Epistemic Uncertainty (Var=0.0833).",
+        "Applying non-exclusionary Hack Day Sonipat Problem 07 fairness policy."
+      ]
+    },
+    {
+      "pr_id": "pr_006_newcomer",
+      "contributor_id": "frank_tester",
+      "target_repo": "Your-Project",
+      "graph_trust_score": 0.0,
+      "is_vouched": false,
+      "is_campaign_member": false,
+      "campaign_id": null,
+      "bayesian_expected_trust": 0.5,
+      "bayesian_uncertainty": 0.0833,
+      "verdict": "HONEST_NEWCOMER_TRIAGE",
+      "action_recommendation": "Route to standard human review queue. Do not block. Contributor exhibits no malicious cluster affinity.",
+      "evidence_trace": [
+        "Zero prior reputation records in Web-of-Trust (cold-start newcomer).",
+        "Passed semantic spam filter: no coordinated burst affinity.",
+        "Bayesian Triage: E[T]=0.50, High Epistemic Uncertainty (Var=0.0833).",
+        "Applying non-exclusionary Hack Day Sonipat Problem 07 fairness policy."
+      ]
+    },
+    {
+      "pr_id": "pr_spam_007",
+      "contributor_id": "sybil_bot_01",
+      "target_repo": "Your-Project",
+      "graph_trust_score": 0.0,
+      "is_vouched": false,
+      "is_campaign_member": true,
+      "campaign_id": "camp_499d732e8d0b",
+      "bayesian_expected_trust": 0.0714,
+      "bayesian_uncertainty": 0.0044,
+      "verdict": "QUARANTINE_CAMPAIGN",
+      "action_recommendation": "Auto-dismiss and flag cluster author",
+      "evidence_trace": [
+        "Flagged as participant in coordinated Sybil campaign 'camp_499d732e8d0b'.",
+        "Cluster: 4 near-identical PRs across 4 repositories.",
+        "Semantic similarity: 1.000 via all-MiniLM-L6-v2 embeddings.",
+        "Bayesian posterior trust collapsed to 0.0714 (Var: 0.0044)."
+      ]
+    }
+  ]
+}

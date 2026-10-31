@@ -1,0 +1,15 @@
+{
+  "contributor_id": "dev_0x42f7",
+  "evaluated_at": "2026-10-31T20:00:00Z",
+  "trust_score": 0.884,
+  "confidence": 0.92,
+  "dimensions": {
+    "semantic_relevance": 0.91,
+    "code_quality_signal": 0.86,
+    "historical_stability": 0.89
+  },
+  "local_model_signatures": [
+    "sentence-transformers/all-MiniLM-L6-v2",
+    "Qwen/Qwen2.5-Coder-1.5B-Instruct"
+  ]
+}

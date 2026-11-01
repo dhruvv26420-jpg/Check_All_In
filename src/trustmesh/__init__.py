@@ -1,16 +1,17 @@
-"""
-TrustMesh: Decentralized Cryptographic Trust Network for Open Source Contributions.
-"""
+"""TrustMesh: Decentralized Trust Network for Open Source."""
+
+__version__ = "0.1.0"
 
 from trustmesh.models import (
-    TrustEdge,
-    VouchRecord,
-    DenounceRecord,
     AuditResult,
-    Verdict,
-    PREvent,
     CampaignAlert,
+    DenounceRecord,
+    DenouncementEntry,
+    PREvent,
+    TrustEdge,
     UnifiedAuditDecision,
+    Verdict,
+    VouchRecord,
 )
 from trustmesh.graph import TrustNetwork
 from trustmesh.campaign import (
@@ -37,8 +38,6 @@ from trustmesh.records import (
     generate_keypair,
     verify_chain,
 )
-
-__version__ = "0.1.0"
 
 __all__ = [
     "__version__",
@@ -73,3 +72,4 @@ __all__ = [
     "CampaignCluster",
     "FingerprintItem",
 ]
+

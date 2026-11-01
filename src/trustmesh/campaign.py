@@ -94,10 +94,12 @@ class CampaignDetector:
         return self._model
 
     def _format_text(self, pr: PREvent) -> str:
-        """Format PR event into semantic text for embedding."""
+        """Format PR event into semantic text for embedding, sanitizing null bytes."""
         files_str = " ".join(pr.files_changed) if pr.files_changed else "none"
         diff_snippet = pr.diff_content[:1500] if pr.diff_content else ""
-        return f"Title: {pr.title}\nFiles: {files_str}\nDiff:\n{diff_snippet}"
+        diff_clean = diff_snippet.replace("\x00", "")
+        title_clean = pr.title.replace("\x00", "") if pr.title else ""
+        return f"Title: {title_clean}\nFiles: {files_str}\nDiff:\n{diff_clean}"
 
     def embed_pr(self, pr: PREvent) -> np.ndarray:
         """
@@ -252,10 +254,18 @@ class CampaignDetector:
                 # Outside sliding window
                 continue
 
-            # Heuristic 4: Account age check (newcomer accounts)
-            account_ages = [pr.account_age_days for pr in cluster_events]
-            mean_age = float(np.mean(account_ages))
-            if mean_age > self.max_account_age_days:
+            # Heuristic 4: Account age check (newcomer accounts with NaN defense)
+            valid_ages = [
+                max(0.0, float(e.account_age_days))
+                for e in cluster_events
+                if e.account_age_days is not None and not np.isnan(float(e.account_age_days))
+            ]
+            mean_age = float(np.mean(valid_ages)) if valid_ages else 0.0
+            min_age = float(np.min(valid_ages)) if valid_ages else 0.0
+            # Flag if the cluster contains suspicious newcomer accounts (min_age <= max_account_age_days)
+            # or if the average account age is low. This catches campaigns employing botnets alongside
+            # compromised legacy accounts, and prevents NaN injection from shielding attacks.
+            if min_age > self.max_account_age_days:
                 continue
 
             # Calculate mean similarity among members

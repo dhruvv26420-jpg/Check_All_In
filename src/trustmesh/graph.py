@@ -145,6 +145,14 @@ class TrustNetwork:
         )
         return record
 
+    def _find_project_node(self, project_id: str) -> Optional[str]:
+        """Case-insensitive and whitespace-tolerant project node lookup."""
+        target = project_id.strip().lower()
+        for node in self.project_graph.nodes:
+            if str(node).strip().lower() == target:
+                return node
+        return None
+
     def get_project_reputation(
         self,
         inspecting_project: str,
@@ -155,21 +163,24 @@ class TrustNetwork:
         using shortest path decay (product of edge weights along lowest-attenuation path).
         Returns 0.0 if unreachable.
         """
-        if inspecting_project == target_project:
+        if inspecting_project.strip().lower() == target_project.strip().lower():
             return 1.0
 
-        if not self.project_graph.has_node(inspecting_project) or not self.project_graph.has_node(target_project):
+        src_node = self._find_project_node(inspecting_project)
+        tgt_node = self._find_project_node(target_project)
+
+        if src_node is None or tgt_node is None:
             return 0.0
 
-        if not nx.has_path(self.project_graph, inspecting_project, target_project):
+        if not nx.has_path(self.project_graph, src_node, tgt_node):
             return 0.0
 
         try:
             # Shortest path on neg_log_weight minimizes sum(-log(w)), maximizing prod(w)
             path = nx.shortest_path(
                 self.project_graph,
-                source=inspecting_project,
-                target=target_project,
+                source=src_node,
+                target=tgt_node,
                 weight="neg_log_weight",
             )
             accumulated_trust = 1.0
@@ -202,8 +213,13 @@ class TrustNetwork:
           * effective_trust >= trust_threshold -> ALLOW_VOUCHED
           * otherwise -> UNCERTAIN_NEWCOMER
         """
+        target_contrib = contributor_id.strip().lower()
+
         # 1. Evaluate positive vouches
-        relevant_vouches = [v for v in self.vouches if v.contributor_id == contributor_id]
+        relevant_vouches = [
+            v for v in self.vouches
+            if v.contributor_id.strip().lower() == target_contrib
+        ]
         path_trust_scores: List[float] = []
 
         for vouch in relevant_vouches:
@@ -215,7 +231,10 @@ class TrustNetwork:
         is_vouched = effective_trust >= trust_threshold
 
         # 2. Evaluate negative denouncements with Asymmetric Negative Isolation
-        relevant_denouncements = [d for d in self.denouncements if d.contributor_id == contributor_id]
+        relevant_denouncements = [
+            d for d in self.denouncements
+            if d.contributor_id.strip().lower() == target_contrib
+        ]
         denouncements_ignored: List[DenouncementEntry] = []
         denouncements_applied: List[DenouncementEntry] = []
 

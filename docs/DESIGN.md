@@ -1,7 +1,7 @@
 # TrustMesh Architecture & Design Specification
 
 > **Hacktoberfest 2026 Hack Day — Problem 07**  
-> *A Zero-AI, Decentralized Cryptographic Trust Network for Open-Source Contributions*
+> *TrustMesh utilizes a hybrid architecture: a deterministic, cryptographic Web-of-Trust graph for peer consensus and Bayesian newcomer triage, augmented by a local, open-weight CPU embedding model (sentence-transformers/all-MiniLM-L6-v2) for spatiotemporal PR campaign clustering.*
 
 ---
 
@@ -112,7 +112,7 @@ $$\text{record\_id} = \text{SHA-256}(\text{canonical\_json}(\text{issuer}, \text
 
 ## 5. Why AI-Text Detection Alone is Fundamentally Insufficient
 
-A common proposal for Hacktoberfest spam is using Large Language Models (LLMs) or neural text classifiers to detect "AI-generated" or "low-quality" PR text. TrustMesh deliberately excludes all AI models from the product. Here is why:
+A common proposal for Hacktoberfest spam is using Large Language Models (LLMs) or neural text classifiers to detect "AI-generated" or "low-quality" PR text. TrustMesh utilizes a hybrid architecture: a deterministic, cryptographic Web-of-Trust graph for peer consensus and Bayesian newcomer triage, augmented by a local, open-weight CPU embedding model (sentence-transformers/all-MiniLM-L6-v2) for spatiotemporal PR campaign clustering. Here is why closed AI-text detectors are avoided:
 
 ### 5.1 Fragility in the Adversarial LLM Arms Race
 Probabilistic classifiers (like Perplexity or RoBERTa detectors) look for statistical regularity in text. Spammers trivially bypass them by:

@@ -14,7 +14,12 @@ import random
 import time
 from typing import Any, Optional
 
-from cryptography.hazmat.primitives.asymmetric import ed25519
+try:
+    from cryptography.hazmat.primitives.asymmetric import ed25519
+    from cryptography.hazmat.primitives import serialization
+    _HAS_NATIVE_CRYPTO = True
+except ImportError:
+    _HAS_NATIVE_CRYPTO = False
 
 from trustmesh.campaign import (
     CampaignCluster,
@@ -98,11 +103,13 @@ class Node:
         if private_key is not None:
             self.private_key = private_key
             pub = private_key.public_key()
-            from cryptography.hazmat.primitives import serialization
-            self.public_key_hex = pub.public_bytes(
-                serialization.Encoding.Raw,
-                serialization.PublicFormat.Raw,
-            ).hex()
+            if _HAS_NATIVE_CRYPTO:
+                self.public_key_hex = pub.public_bytes(
+                    serialization.Encoding.Raw,
+                    serialization.PublicFormat.Raw,
+                ).hex()
+            else:
+                self.public_key_hex = pub.public_bytes().hex()
         else:
             self.private_key, self.public_key_hex = generate_keypair(seed or project_id)
 

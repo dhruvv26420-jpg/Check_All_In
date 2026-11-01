@@ -9,7 +9,6 @@
     "historical_stability": 0.89
   },
   "local_model_signatures": [
-    "sentence-transformers/all-MiniLM-L6-v2",
-    "Qwen/Qwen2.5-Coder-1.5B-Instruct"
+    "sentence-transformers/all-MiniLM-L6-v2"
   ]
 }

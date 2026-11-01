@@ -21,6 +21,7 @@ Key Architectural Capabilities:
   (SentenceTransformers all-MiniLM-L6-v2) to quarantine coordinated Sybil spam bursts.
 """
 
+import math
 from typing import List, Tuple, Dict, Optional, Any
 import numpy as np
 
@@ -40,8 +41,8 @@ class TrustMeshEngine:
     Unified Trust & Triage Engine for Problem 07.
     
     Synthesizes:
-    1. Spatiotemporal Diff Clustering over Sliding Windows:
-       Scans PR streams for coordinated Sybil campaigns using local all-MiniLM-L6-v2 embeddings.
+    1. Spatiotemporal Diff Clustering over Sliding Windows (SentenceTransformers all-MiniLM-L6-v2):
+       Scans PR streams for coordinated Sybil campaigns using dense embeddings.
     2. Transitive Trust Decay via Multi-Hop Peering & Asymmetric Negative Isolation:
        Propagates vouches and quarantines hostile untrusted denouncements.
     3. Bayesian Cold-Start Newcomer Triage with Beta(alpha, beta) Epistemic Uncertainty:
@@ -84,7 +85,15 @@ class TrustMeshEngine:
 
         total = alpha + beta
         expected_trust = alpha / total
-        variance = (alpha * beta) / ((total ** 2) * (total + 1.0))
+        try:
+            variance = (alpha * beta) / ((total ** 2) * (total + 1.0))
+        except OverflowError:
+            variance = 0.0
+
+        if math.isnan(expected_trust):
+            expected_trust = 0.0
+        if math.isnan(variance):
+            variance = 0.0
 
         return round(float(expected_trust), 4), round(float(variance), 4)
 

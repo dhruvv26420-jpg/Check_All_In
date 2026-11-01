@@ -20,9 +20,8 @@ STAGE 1: STATIC COMPLIANCE & DISQUALIFICATION SCAN
 3. Open-Weight Model Alignment Verification:
    Declared in HACKATHON.md:
      • sentence-transformers/all-MiniLM-L6-v2 (Local 384-d semantic embedding model)
-     • Qwen/Qwen2.5-Coder-1.5B-Instruct (Local open-weight code instruction LLM)
    Implementation Audit in src/:
-     • src/trustmesh/models.py: Declares EMBEDDING_MODEL_ID and CODE_LLM_MODEL_ID in SUPPORTED_MODELS.
+     • src/trustmesh/models.py: Declares EMBEDDING_MODEL_ID in SUPPORTED_MODELS.
      • src/trustmesh/campaign.py: Imports and invokes sentence-transformers/all-MiniLM-L6-v2 on CPU.
      • src/trustmesh/evaluator.py: Employs embedding vectors in audit_pull_request().
      • tests/test_smoke.py: Validates model registry retrieval and configuration.

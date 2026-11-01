@@ -13,7 +13,6 @@ from pydantic import BaseModel, Field
 # 1. Local Open-Weight Model Registry (Hack Day Sonipat Compliance)
 # ==============================================================================
 EMBEDDING_MODEL_ID = "sentence-transformers/all-MiniLM-L6-v2"
-CODE_LLM_MODEL_ID = "Qwen/Qwen2.5-Coder-1.5B-Instruct"
 
 SUPPORTED_MODELS: Dict[str, Dict[str, Any]] = {
     "embedding": {
@@ -21,12 +20,6 @@ SUPPORTED_MODELS: Dict[str, Dict[str, Any]] = {
         "runtime": "sentence-transformers",
         "device": "cpu",
         "description": "Local 384-dimensional dense semantic embeddings for PRs and commit messages.",
-    },
-    "code_llm": {
-        "model_id": CODE_LLM_MODEL_ID,
-        "runtime": "transformers / torch",
-        "device": "cpu",
-        "description": "Local 1.5B instruction-tuned open code model for PR semantic validation and review synthesis.",
     },
 }
 
@@ -99,7 +92,8 @@ class Verdict(str):
 class DenouncementEntry(dict):
     """
     Structured denouncement record that supports dict-style access,
-    attribute-style access, and direct string comparison against project_id.
+    attribute-style access, and case-insensitive direct string comparison
+    against project_id.
     """
     def __init__(self, project_id: str, severity: float, reason: str, **kwargs: Any):
         super().__init__(project_id=project_id, severity=severity, reason=reason, **kwargs)
@@ -123,7 +117,9 @@ class DenouncementEntry(dict):
 
     def __eq__(self, other: Any) -> bool:
         if isinstance(other, str):
-            return self.get("project_id") == other or other in self.get("reason", "")
+            other_norm = other.strip().lower()
+            proj_norm = str(self.get("project_id", "")).strip().lower()
+            return proj_norm == other_norm or other_norm in str(self.get("reason", "")).lower()
         return super().__eq__(other)
 
     def __str__(self) -> str:
